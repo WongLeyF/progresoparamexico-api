@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DenounceModule } from './modules/denounce/denounce.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { AppService } from './app.service';
       }),
       inject: [ConfigService],
     }),
+    DenounceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
