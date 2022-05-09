@@ -4,6 +4,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DenounceModule } from './modules/denounce/denounce.module';
+import { VictimModule } from './modules/victim/victim.module';
+import { AggressorModule } from './modules/aggressor/aggressor.module';
+import { ReportsModule } from './modules/reports/reports.module';
+import { InstituteModule } from './modules/institute/institute.module';
+import { CareerModule } from './modules/career/career.module';
 
 @Module({
   imports: [
@@ -20,6 +25,11 @@ import { DenounceModule } from './modules/denounce/denounce.module';
       inject: [ConfigService],
     }),
     DenounceModule,
+    VictimModule,
+    AggressorModule,
+    ReportsModule,
+    InstituteModule,
+    CareerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -18,7 +18,8 @@ export class DenounceService {
     }
 
     async findOne(id: string): Promise<Denounce> {
-        return await this.denounceModule.findById(id).exec();
+        //populate institute and career
+        return await this.denounceModule.findById(id).populate('instituteId').populate('careerId').exec();
     }
 
     async delete(id: string): Promise<Denounce> {
@@ -30,11 +31,12 @@ export class DenounceService {
     }
 
     async findBySchool(school: string): Promise<Denounce[]> {
-        return await this.denounceModule.find({ school: school }).exec();
+        return await this.denounceModule.find({ school: school }).populate('instituteId').populate('careerId').exec();
     }
 
-    async findBySchoolGrade(school: string, grade: string): Promise<Denounce[]> {
-        return await this.denounceModule.find({ school: school, schoolgrade: grade }).exec();
+    async findBySchoolGrade(institute: string, grade: string): Promise<Denounce[]> {
+        //find by institute.name and institute.schoolgrade populate institute and career
+        return await this.denounceModule.find({ institute: institute, schoolgrade: grade }).populate('instituteId').populate('careerId').exec();
     }
 
     async findBySchoolGradeAndCareer(school: string, grade: string, career: string): Promise<Denounce[]> {

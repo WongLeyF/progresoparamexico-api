@@ -1,19 +1,31 @@
 import mongoose from "mongoose";
 
 export const DenounceSchema = new mongoose.Schema({
-    schoolgrade: { type: String },
-    school: { type: String },
-    career: { type: String },
+    instituteId: new mongoose.Schema({
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Institute",
+    }),
+    careerId: new mongoose.Schema({
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Career",
+    }),
     violenceType: { type: String, enum: ["physical", "sexual", "verbal", "patrimonial"] },
-    personDenounced: {
-        type: String,
-        enum: [
-            "classmate", "schoolmate", "teacher", "school relationship",
-            "external relationship", "principal", "administrative", "multipurpose",
-            "non-school", "other"
-        ]
-    },
-    personDenouncedGender: { type: String, enum: ["M", "F", "O"] },
+    // personDenounced: {
+    //     type: String,
+    //     enum: [
+    //         "classmate", "schoolmate", "teacher", "school relationship",
+    //         "external relationship", "principal", "administrative", "multipurpose",
+    //         "non-school", "other"
+    //     ]
+    // },
+    // personDenouncedGender: { type: String, enum: ["M", "F", "O"] },
+    agressorId: new mongoose.Schema({
+        type: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Aggresor"
+        }
+    }),
+
     //aula, oficina o privado, area comunes, baños, fuera de la escula realizando una actividad academica, fuera de la escuala en otra actividad
     incidentLocation: { type: String, enum: ["classroom", "office", "common area", "bathroom", "outside school with academic activity", "outside school with other activity", "other"] },
     //ninguna, denuncia a maestro, autoridad escolar, instancia de gobierno, otro
