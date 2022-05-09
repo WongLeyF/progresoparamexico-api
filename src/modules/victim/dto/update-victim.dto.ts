@@ -9,6 +9,6 @@ export class UpdateVictimDto extends PartialType(CreateVictimDto) {
     address?: string;
     phone?: string;
     email?: string;
-    career?: string;
-    institute?: string;
+    careerId?: string;
+    instituteId?: string;
 }

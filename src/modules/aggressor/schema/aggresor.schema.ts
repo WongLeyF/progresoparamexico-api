@@ -16,7 +16,7 @@ export const AggressorSchema = new mongoose.Schema({
     gender: { type: String, enum: ["M", "F", "O"] },
     instituteId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Institute",
+        ref: 'Institute',
     }
 }, {
     timestamps: true,

@@ -6,11 +6,11 @@ export const InstituteSchema = new mongoose.Schema({
     phone: { type: String },
     email: { type: String },
     schoolGrade: { type: String },
-    careers: [new mongoose.Schema({
+    careerId: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Career",
-    })],
+        ref: 'Career',
+      }],
 }, {
     // timestamps: true,
-    collection: "institutes"
+    collection: "institute"
 });

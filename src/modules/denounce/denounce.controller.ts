@@ -10,7 +10,7 @@ export class DenounceController implements OnModuleInit{
     ) {}
 
     onModuleInit() {
-        console.log('DenounceController loaded');
+        // console.log('DenounceController loaded');
     }
 
     @Get('/')

@@ -9,6 +9,6 @@ export class Victim {
     address: string;
     phone: string;
     email: string;
-    career: Career;
-    institute: Institute;
+    careerId: Career;
+    instituteId: Institute;
 }

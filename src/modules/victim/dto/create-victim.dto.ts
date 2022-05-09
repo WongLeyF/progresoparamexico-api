@@ -5,6 +5,6 @@ export class CreateVictimDto {
     address?: string;
     phone?: string;
     email?: string;
-    career: string;
-    institute: string;
+    careerId: string;
+    instituteId: string;
 }

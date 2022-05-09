@@ -9,6 +9,9 @@ import { AggressorModule } from './modules/aggressor/aggressor.module';
 import { ReportsModule } from './modules/reports/reports.module';
 import { InstituteModule } from './modules/institute/institute.module';
 import { CareerModule } from './modules/career/career.module';
+import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +33,9 @@ import { CareerModule } from './modules/career/career.module';
     ReportsModule,
     InstituteModule,
     CareerModule,
+    UsersModule,
+    RolesModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
