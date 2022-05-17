@@ -5,9 +5,6 @@ export const VictimSchema = new mongoose.Schema(
   {
     name: { type: String },
     lastName: { type: String },
-    age: { type: Number },
-    address: { type: String },
-    phone: { type: String },
     email: { type: String },
     careerId: {
       type: mongoose.Schema.Types.ObjectId,

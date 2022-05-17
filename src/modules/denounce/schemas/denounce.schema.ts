@@ -10,6 +10,10 @@ export const DenounceSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Career',
     },
+    victimId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Victim',
+    },
     violenceType: {
       type: String,
       enum: ['physical', 'sexual', 'verbal', 'patrimonial'],

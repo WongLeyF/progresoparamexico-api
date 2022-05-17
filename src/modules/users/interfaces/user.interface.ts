@@ -14,6 +14,5 @@ export interface User extends Document {
     verifiedAt: Date;
     createdAt: Date;
     roleId: string | any;
-    pushIds: string[];
     comparePassword(password: string): Promise<boolean>;
 }

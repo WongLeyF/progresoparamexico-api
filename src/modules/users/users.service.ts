@@ -208,18 +208,4 @@ export class UsersService {
     async delete(userId: string): Promise<User> {
         return await this.userModel.findByIdAndDelete(userId).exec();
     }
-
-    async registerPushId(userID: string, pushID: string): Promise<any> {
-        const user = await this.userModel.findByIdAndUpdate(userID, { $addToSet: { pushIds: pushID } }, { new: true }).exec();
-        return user;
-    }
-
-    async removePushId(userID: string, pushID: string): Promise<any> {
-        const user = await this.userModel.findByIdAndUpdate(userID, { $pullAll: { pushIds: [pushID] } }, { new: true }).exec();
-        return user;
-    }
-
-    async removeDuplicatesPushID(pushID: string): Promise<any> {
-        return await this.userModel.updateMany({}, { $pull: { pushIds: pushID } }, { multi: true }).exec();
-    }
 }

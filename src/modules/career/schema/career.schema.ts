@@ -8,6 +8,6 @@ export const CareerSchema = new mongoose.Schema({
     },
     description: { type: String },
 }, {
-    // timestamps: true,
+    timestamps: true,
     collection: "careers"
 });
