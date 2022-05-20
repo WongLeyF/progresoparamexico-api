@@ -16,11 +16,6 @@ export class AuthService {
         private roleService: RolesService
     ) { }
 
-    async getUserByPassportId(passportId: string): Promise<User> {
-        const user = await this.usersService.getByPassportId(passportId);
-        return user;
-    }
-
     async getUserByEmail(email: string): Promise<User> {
         const user = await this.usersService.getByEmail(email);
         return user;

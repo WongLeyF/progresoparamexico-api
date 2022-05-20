@@ -98,7 +98,7 @@ export class UsersController implements OnModuleInit {
             throw new BadRequestException(`Ya existe un usuario con el correo: ${createUserDTO.email}`);
         }
 
-        createUserDTO.verifiedCode = randomstring.generate({ length: 15 });
+        // createUserDTO.verifiedCode = randomstring.generate({ length: 15 });
 
         const role = await this.roleService.getById(createUserDTO.roleId);
 

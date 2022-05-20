@@ -141,9 +141,6 @@ export class UsersService {
 
     }
 
-    async getByPassportId(passportId: string): Promise<User> {
-        return await this.userModel.findOne({ passportId }).populate('roleId', '-createdAt -updatedAt').exec();
-    }
 
     async getByRole(roleId: string, fields: string = null): Promise<User[]> {
 

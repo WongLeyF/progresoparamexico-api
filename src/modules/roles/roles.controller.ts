@@ -33,7 +33,7 @@ export class RolesController {
 
     }
 
-    @UseGuards(JwtAuthGuard)
+    // @UseGuards(JwtAuthGuard)
     @Get('/name/:roleName')
     async getByName(@Res() res: Response, @Param() params) {
 
@@ -47,7 +47,7 @@ export class RolesController {
 
     }
 
-    @UseGuards(JwtAuthGuard)
+    // @UseGuards(JwtAuthGuard)
     @Post('/')
     async create(@Body() createRoleDTO: CreateRoleDTO, @Res() res: Response) {
 

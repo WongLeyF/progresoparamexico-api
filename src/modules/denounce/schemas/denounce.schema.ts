@@ -14,9 +14,9 @@ export const DenounceSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Victim',
     },
-    violenceType: {
-      type: String,
-      enum: ['physical', 'sexual', 'verbal', 'patrimonial'],
+    agressorId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Aggresor',
     },
     // personDenounced: {
     //     type: String,
@@ -27,11 +27,11 @@ export const DenounceSchema = new mongoose.Schema(
     //     ]
     // },
     // personDenouncedGender: { type: String, enum: ["M", "F", "O"] },
-    agressorId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Aggresor',
-    },
 
+    violenceType: {
+      type: String,
+      enum: ['physical', 'sexual', 'verbal', 'patrimonial'],
+    },
     //aula, oficina o privado, area comunes, baños, fuera de la escula realizando una actividad academica, fuera de la escuala en otra actividad
     incidentLocation: {
       type: String,
