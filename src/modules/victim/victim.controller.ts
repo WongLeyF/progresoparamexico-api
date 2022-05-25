@@ -7,27 +7,27 @@ import { UpdateVictimDto } from './dto/update-victim.dto';
 export class VictimController {
   constructor(private readonly victimService: VictimService) {}
 
-  @Post()
+  @Post('/')
   create(@Body() createVictimDto: CreateVictimDto) {
     return this.victimService.create(createVictimDto);
   }
 
-  @Get()
+  @Get('/')
   findAll() {
     return this.victimService.findAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.victimService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('/:id')
   update(@Param('id') id: string, @Body() updateVictimDto: UpdateVictimDto) {
     return this.victimService.update(+id, updateVictimDto);
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   remove(@Param('id') id: string) {
     return this.victimService.remove(+id);
   }

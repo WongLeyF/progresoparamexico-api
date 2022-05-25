@@ -7,27 +7,27 @@ import { UpdateAggressorDto } from './dto/update-aggressor.dto';
 export class AggressorController {
   constructor(private readonly aggressorService: AggressorService) {}
 
-  @Post()
+  @Post('/')
   create(@Body() createAggressorDto: CreateAggressorDto) {
     return this.aggressorService.create(createAggressorDto);
   }
 
-  @Get()
+  @Get('/')
   findAll() {
     return this.aggressorService.findAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.aggressorService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('/:id')
   update(@Param('id') id: string, @Body() updateAggressorDto: UpdateAggressorDto) {
     return this.aggressorService.update(+id, updateAggressorDto);
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   remove(@Param('id') id: string) {
     return this.aggressorService.remove(+id);
   }

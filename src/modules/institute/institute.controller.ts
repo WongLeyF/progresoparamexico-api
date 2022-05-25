@@ -7,27 +7,32 @@ import { UpdateInstituteDto } from './dto/update-institute.dto';
 export class InstituteController {
   constructor(private readonly instituteService: InstituteService) {}
 
-  @Post()
+  @Post('/')
   create(@Body() createInstituteDto: CreateInstituteDto) {
     return this.instituteService.create(createInstituteDto);
   }
 
-  @Get()
+  @Get('/')
   findAll() {
     return this.instituteService.findAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.instituteService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Get('/grade/:grade')
+  findBySchoolGrade(@Param('grade') grade: string) {
+    return this.instituteService.findBySchoolGrade(grade);
+  }
+
+  @Patch('/:id')
   update(@Param('id') id: string, @Body() updateInstituteDto: UpdateInstituteDto) {
     return this.instituteService.update(+id, updateInstituteDto);
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   remove(@Param('id') id: string) {
     return this.instituteService.remove(+id);
   }

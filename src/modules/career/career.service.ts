@@ -17,15 +17,19 @@ export class CareerService {
     return this.careerModule.find();
   }
 
-  findOne(id: number) {
+  findOne(id) {
     return this.careerModule.findById(id).exec();
   }
 
-  update(id: number, updateCareerDto: UpdateCareerDto) {
+  update(id, updateCareerDto: UpdateCareerDto) {
     return this.careerModule.findByIdAndUpdate(id, updateCareerDto, { new: true }).exec();
   }
 
-  remove(id: number) {
+  remove(id) {
     return this.careerModule.findByIdAndRemove(id).exec();
+  }
+  
+  findByInstituteId(instituteId: string) {
+    return this.careerModule.find({ instituteId: instituteId }).exec();
   }
 }

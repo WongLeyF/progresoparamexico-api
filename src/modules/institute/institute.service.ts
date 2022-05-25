@@ -21,6 +21,10 @@ export class InstituteService {
     return this.instituteModule.findById(id).exec();
   }
 
+  findBySchoolGrade(grade: string) {
+    return this.instituteModule.find({ schoolGrade: grade }).exec();
+  }
+
   update(id: number, updateInstituteDto: UpdateInstituteDto) {
     return this.instituteModule.findByIdAndUpdate(id, updateInstituteDto, { new: true }).exec();
   }

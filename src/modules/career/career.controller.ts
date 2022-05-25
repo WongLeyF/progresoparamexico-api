@@ -7,27 +7,33 @@ import { UpdateCareerDto } from './dto/update-career.dto';
 export class CareerController {
   constructor(private readonly careerService: CareerService) {}
 
-  @Post()
+  @Post('/')
   create(@Body() createCareerDto: CreateCareerDto) {
     return this.careerService.create(createCareerDto);
   }
 
-  @Get()
+  @Get('/')
   findAll() {
     return this.careerService.findAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.careerService.findOne(+id);
   }
 
-  @Patch(':id')
+  //get by instituteId
+  @Get('/institute/:id')
+  findByInstituteId(@Param('id') id: string) {
+    return this.careerService.findByInstituteId(id);
+  }
+
+  @Patch('/:id')
   update(@Param('id') id: string, @Body() updateCareerDto: UpdateCareerDto) {
     return this.careerService.update(+id, updateCareerDto);
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   remove(@Param('id') id: string) {
     return this.careerService.remove(+id);
   }

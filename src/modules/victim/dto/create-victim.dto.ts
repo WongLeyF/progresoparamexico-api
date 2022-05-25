@@ -1,6 +1,7 @@
 export class CreateVictimDto {
     name?: string;
     lastName?: string;
+    gender?: string;
     age?: number;
     address?: string;
     phone?: string;
