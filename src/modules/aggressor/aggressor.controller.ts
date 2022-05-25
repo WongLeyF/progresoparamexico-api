@@ -9,6 +9,7 @@ export class AggressorController {
 
   @Post('/')
   create(@Body() createAggressorDto: CreateAggressorDto) {
+    console.log('entro')
     return this.aggressorService.create(createAggressorDto);
   }
 

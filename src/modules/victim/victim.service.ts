@@ -11,7 +11,7 @@ export class VictimService {
   constructor(@InjectModel('Victim') private readonly victimModule: Model<Victim> ) {}
 
   create(createVictimDto: CreateVictimDto) {
-    return;
+    return this.victimModule.create(createVictimDto);
   }
 
   findAll() {
