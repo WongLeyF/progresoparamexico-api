@@ -7,6 +7,7 @@ export const VictimSchema = new mongoose.Schema(
     lastName: { type: String },
     email: { type: String },
     gender: { type: String, enum: ["M", "F", "O"] },
+    age: {type: Number},
     careerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Career',

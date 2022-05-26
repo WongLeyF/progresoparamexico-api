@@ -14,9 +14,9 @@ export const DenounceSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Victim',
     },
-    agressorId: {
+    aggressorId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Aggresor',
+      ref: 'Aggressor',
     },
     // personDenounced: {
     //     type: String,
@@ -65,7 +65,7 @@ export const DenounceSchema = new mongoose.Schema(
     //Atencion psicologica, psiquiatrica, medica, interrupcion legal del embarazo
     interventionType: {
       type: String,
-      enum: ['psychological', 'psychiatric', 'medical', 'legal abortion'],
+      enum: ['none','psychological', 'psychiatric', 'medical', 'legal abortion'],
     },
     //narracion de hechos
     interventionDescription: { type: String },

@@ -11,6 +11,6 @@ export const InstituteSchema = new mongoose.Schema({
         ref: 'Career',
       }],
 }, {
-    // timestamps: true,
+    timestamps: true,
     collection: "institute"
 });

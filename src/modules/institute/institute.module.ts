@@ -11,6 +11,8 @@ import { MongooseModule } from '@nestjs/mongoose';
         name: 'Institute',
         useFactory: () => {
           const schema = InstituteSchema;
+          schema.plugin(require('mongoose-paginate-v2'));
+          schema.plugin(require('mongoose-aggregate-paginate-v2'));
           return schema;
         },
       },

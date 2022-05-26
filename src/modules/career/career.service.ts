@@ -17,15 +17,15 @@ export class CareerService {
     return this.careerModule.find();
   }
 
-  findOne(id) {
+  findOne(id: string) {
     return this.careerModule.findById(id).exec();
   }
 
-  update(id, updateCareerDto: UpdateCareerDto) {
+  update(id: string, updateCareerDto: UpdateCareerDto) {
     return this.careerModule.findByIdAndUpdate(id, updateCareerDto, { new: true }).exec();
   }
 
-  remove(id) {
+  remove(id: string) {
     return this.careerModule.findByIdAndRemove(id).exec();
   }
   

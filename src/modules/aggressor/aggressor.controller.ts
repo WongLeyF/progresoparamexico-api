@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { AggressorService } from './aggressor.service';
 import { CreateAggressorDto } from './dto/create-aggressor.dto';
 import { UpdateAggressorDto } from './dto/update-aggressor.dto';
@@ -20,16 +20,23 @@ export class AggressorController {
 
   @Get('/:id')
   findOne(@Param('id') id: string) {
-    return this.aggressorService.findOne(+id);
+    return this.aggressorService.findOne(id);
   }
+
+  // find by params name lastname
+  @Get('/search/:name/:lastName/:instituteId/:gender')
+  search(@Param('name') name: string, @Param('lastName') lastName: string, @Param('instituteId') instituteId: string, @Param('gender') gender: string) {
+    return this.aggressorService.search({name, lastName, instituteId, gender});
+  }
+
 
   @Patch('/:id')
   update(@Param('id') id: string, @Body() updateAggressorDto: UpdateAggressorDto) {
-    return this.aggressorService.update(+id, updateAggressorDto);
+    return this.aggressorService.update(id, updateAggressorDto);
   }
 
   @Delete('/:id')
   remove(@Param('id') id: string) {
-    return this.aggressorService.remove(+id);
+    return this.aggressorService.remove(id);
   }
 }

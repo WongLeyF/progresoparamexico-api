@@ -52,6 +52,18 @@ export class UsersService {
             //         as: 'bussiness'
             //     }
             // },
+            // pupulate roleId
+            {
+                $lookup: {
+                    from: 'roles',
+                    localField: 'roleId',
+                    foreignField: '_id',
+                    as: 'roleId'
+                }
+            },
+            {
+                $unwind: '$roleId'
+            },
             {
                 $addFields: {
                     // business: { $arrayElemAt: ['$bussiness', 0] },
@@ -69,6 +81,7 @@ export class UsersService {
                     isVerified: 1,
                     isActive: 1,
                     roleId: 1,
+                    role: 1,
                     createdAt: 1,
                     // 'business._id': 1,
                     // 'business.name': 1

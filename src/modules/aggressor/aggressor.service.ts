@@ -15,18 +15,25 @@ export class AggressorService {
   }
 
   findAll() {
-    return `This action returns all aggressor`;
+    return this.aggressorModule.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} aggressor`;
+  findOne(id: string) {
+    return this.aggressorModule.findById(id);
   }
 
-  update(id: number, updateAggressorDto: UpdateAggressorDto) {
-    return `This action updates a #${id} aggressor`;
+  update(id: string, updateAggressorDto: UpdateAggressorDto) {
+    return this.aggressorModule.findByIdAndUpdate(id, updateAggressorDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} aggressor`;
+  remove(id: string) {
+    return this.aggressorModule.findByIdAndRemove(id);
+  }
+
+  // find by query
+  search(query: any) {
+    console.log(query);
+    
+    return this.aggressorModule.find(query);
   }
 }

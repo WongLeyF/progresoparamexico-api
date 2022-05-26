@@ -1,4 +1,5 @@
 export class Aggressor {
+    _id: string;
     name: string;
     lastName: string;
     age: number;

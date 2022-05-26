@@ -17,7 +17,7 @@ export class InstituteService {
     return this.instituteModule.find();
   }
 
-  findOne(id: number) {
+  findOne(id: any) {
     return this.instituteModule.findById(id).exec();
   }
 
@@ -25,11 +25,11 @@ export class InstituteService {
     return this.instituteModule.find({ schoolGrade: grade }).exec();
   }
 
-  update(id: number, updateInstituteDto: UpdateInstituteDto) {
-    return this.instituteModule.findByIdAndUpdate(id, updateInstituteDto, { new: true }).exec();
+  update(_id: any, updateInstituteDto: UpdateInstituteDto) {
+    return this.instituteModule.findByIdAndUpdate(_id, updateInstituteDto, { new: true }).exec();
   }
 
-  remove(id: number) {
+  remove(id: any) {
     return this.instituteModule.findByIdAndRemove(id).exec();
   }
 }

@@ -14,7 +14,12 @@ export class DenounceService {
     }
 
     async findAll(): Promise<Denounce[]> {
-        return await this.denounceModule.find().exec();
+        //populate institute
+        return await this.denounceModule.find()
+        .populate('instituteId')
+        .populate('careerId')
+        .populate('aggressorId')
+        .populate('victimId');
     }
 
     async findOne(id: string): Promise<Denounce> {

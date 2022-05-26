@@ -11,6 +11,8 @@ import { CareerSchema } from './schema/career.schema';
         name: 'Career',
         useFactory: () => {
           const schema = CareerSchema;
+          schema.plugin(require('mongoose-paginate-v2'));
+          schema.plugin(require('mongoose-aggregate-paginate-v2'));
           return schema;
         },
       },
