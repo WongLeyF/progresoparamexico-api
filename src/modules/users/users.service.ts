@@ -76,6 +76,8 @@ export class UsersService {
             {
                 $project: {
                     _id: 1,
+                    name: 1,
+                    lastName: 1,
                     fullName: 1,
                     email: 1,
                     isVerified: 1,

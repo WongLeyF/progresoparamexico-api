@@ -141,7 +141,7 @@ export class UsersController implements OnModuleInit {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Put('/password')
+    @Put('/password/:userId')
     async updateUserPassword(@Body() createUserDTO: CreateUserDto, @Res() res, @Req() req, @Param() params) {
 
         const hashed = await bcrypt.hash(createUserDTO.password, 10);
@@ -152,7 +152,7 @@ export class UsersController implements OnModuleInit {
             password: hashed,
         };
 
-        await this.userService.updatePassword(userSession.sub, userUpdateData);
+        await this.userService.updatePassword(params.userId, userUpdateData);
 
         res.status(HttpStatus.OK).json({ message: 'Contraseña actualizada' });
 
@@ -173,8 +173,17 @@ export class UsersController implements OnModuleInit {
         }
 
         try {
-
+            
+            
+            
             const user = await this.userService.update(params.userId, createUserDTO);
+            if(createUserDTO.password) {
+                const hashed = await bcrypt.hash(createUserDTO.password, 10);
+                const userUpdateData: UpdatePasswordDTO = {
+                    password: hashed,
+                };
+                await this.userService.updatePassword(params.userId, userUpdateData);
+            }
 
             res.status(HttpStatus.OK).json(user);
 
